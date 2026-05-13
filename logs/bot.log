@@ -1,0 +1,436 @@
+2026-05-13 14:23:17 | INFO     | root                           | Логирование настроено: уровень=INFO, файл=logs/bot.log
+2026-05-13 14:23:17 | INFO     | __main__                       | ==================================================
+2026-05-13 14:23:17 | INFO     | __main__                       | Запуск Weather Bot
+2026-05-13 14:23:17 | INFO     | __main__                       | Конфигурация: Config(bot_token='***', weather_api_key='***', db_path='data/weather_bot.db', units='metric')
+2026-05-13 14:23:17 | INFO     | __main__                       | ==================================================
+2026-05-13 14:23:17 | INFO     | bot.database.db_manager        | Таблицы БД успешно инициализированы
+2026-05-13 14:23:17 | INFO     | bot.database.db_manager        | DatabaseManager инициализирован: data/weather_bot.db
+2026-05-13 14:23:17 | INFO     | bot.services.weather_service   | WeatherService инициализирован
+2026-05-13 14:23:19 | INFO     | bot.weather_bot                | Роутеры зарегистрированы
+2026-05-13 14:23:19 | INFO     | bot.weather_bot                | WeatherBot успешно инициализирован
+2026-05-13 14:23:19 | INFO     | bot.weather_bot                | Запуск WeatherBot...
+2026-05-13 14:23:23 | INFO     | bot.weather_bot                | Бот запущен. Ожидаю сообщения...
+2026-05-13 14:23:23 | INFO     | aiogram.dispatcher             | Start polling
+2026-05-13 14:23:23 | INFO     | aiogram.dispatcher             | Run polling for bot @weather_ast01_shm_bot id=8867878073 - 'Weather Information Bot'
+2026-05-13 14:23:34 | INFO     | bot.handlers.command_handlers  | Пользователь 1264776120 запустил бота
+2026-05-13 14:23:34 | DEBUG    | bot.database.db_manager        | Пользователь 1264776120 сохранён/обновлён
+2026-05-13 14:23:35 | INFO     | aiogram.event                  | Update id=878587622 is handled. Duration 469 ms by bot id=8867878073
+2026-05-13 14:23:46 | INFO     | bot.handlers.weather_handlers  | Пользователь 1264776120 ищет погоду: 'Астана'
+2026-05-13 14:23:46 | INFO     | bot.services.weather_service   | Запрос текущей погоды для: Астана
+2026-05-13 14:23:46 | DEBUG    | bot.database.db_manager        | Запрос 'Астана' от 1264776120 сохранён
+2026-05-13 14:23:46 | INFO     | aiogram.event                  | Update id=878587623 is not handled. Duration 515 ms by bot id=8867878073
+2026-05-13 14:23:46 | ERROR    | aiogram.event                  | Cause exception while process update id=878587623 by bot id=8867878073
+TypeError: catching classes that do not inherit from BaseException is not allowed
+Traceback (most recent call last):
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 109, in _make_request
+    raise WeatherAPIError(
+bot.services.weather_service.WeatherAPIError: Неверный API ключ OpenWeatherMap
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\handlers\weather_handlers.py", line 77, in handle_city_input
+    weather = await weather_service.get_current_weather(city)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 158, in get_current_weather
+    data = await self._make_request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 130, in _make_request
+    except aiohttp.ClientTimeout:
+TypeError: catching classes that do not inherit from BaseException is not allowed
+2026-05-13 14:24:01 | INFO     | bot.handlers.command_handlers  | Пользователь 1264776120 запросил /help
+2026-05-13 14:24:02 | INFO     | aiogram.event                  | Update id=878587624 is handled. Duration 344 ms by bot id=8867878073
+2026-05-13 14:24:12 | INFO     | bot.handlers.weather_handlers  | Пользователь 1264776120 ищет погоду: 'алматы'
+2026-05-13 14:24:12 | INFO     | bot.services.weather_service   | Запрос текущей погоды для: алматы
+2026-05-13 14:24:12 | DEBUG    | bot.database.db_manager        | Запрос 'алматы' от 1264776120 сохранён
+2026-05-13 14:24:12 | INFO     | aiogram.event                  | Update id=878587625 is not handled. Duration 500 ms by bot id=8867878073
+2026-05-13 14:24:12 | ERROR    | aiogram.event                  | Cause exception while process update id=878587625 by bot id=8867878073
+TypeError: catching classes that do not inherit from BaseException is not allowed
+Traceback (most recent call last):
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 109, in _make_request
+    raise WeatherAPIError(
+bot.services.weather_service.WeatherAPIError: Неверный API ключ OpenWeatherMap
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\handlers\weather_handlers.py", line 77, in handle_city_input
+    weather = await weather_service.get_current_weather(city)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 158, in get_current_weather
+    data = await self._make_request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 130, in _make_request
+    except aiohttp.ClientTimeout:
+TypeError: catching classes that do not inherit from BaseException is not allowed
+2026-05-13 14:24:16 | INFO     | bot.handlers.command_handlers  | Пользователь 1264776120 запустил бота
+2026-05-13 14:24:16 | DEBUG    | bot.database.db_manager        | Пользователь 1264776120 сохранён/обновлён
+2026-05-13 14:24:16 | INFO     | aiogram.event                  | Update id=878587626 is handled. Duration 187 ms by bot id=8867878073
+2026-05-13 14:24:19 | INFO     | bot.handlers.weather_handlers  | Пользователь 1264776120 ищет погоду: 'алматы'
+2026-05-13 14:24:19 | INFO     | bot.services.weather_service   | Запрос текущей погоды для: алматы
+2026-05-13 14:24:19 | DEBUG    | bot.database.db_manager        | Запрос 'алматы' от 1264776120 сохранён
+2026-05-13 14:24:19 | INFO     | aiogram.event                  | Update id=878587627 is not handled. Duration 280 ms by bot id=8867878073
+2026-05-13 14:24:19 | ERROR    | aiogram.event                  | Cause exception while process update id=878587627 by bot id=8867878073
+TypeError: catching classes that do not inherit from BaseException is not allowed
+Traceback (most recent call last):
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 109, in _make_request
+    raise WeatherAPIError(
+bot.services.weather_service.WeatherAPIError: Неверный API ключ OpenWeatherMap
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\handlers\weather_handlers.py", line 77, in handle_city_input
+    weather = await weather_service.get_current_weather(city)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 158, in get_current_weather
+    data = await self._make_request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 130, in _make_request
+    except aiohttp.ClientTimeout:
+TypeError: catching classes that do not inherit from BaseException is not allowed
+2026-05-13 14:24:55 | INFO     | bot.handlers.weather_handlers  | Пользователь 1264776120 ищет погоду: 'Moscow'
+2026-05-13 14:24:55 | INFO     | bot.services.weather_service   | Запрос текущей погоды для: Moscow
+2026-05-13 14:24:56 | DEBUG    | bot.database.db_manager        | Запрос 'Moscow' от 1264776120 сохранён
+2026-05-13 14:24:56 | INFO     | aiogram.event                  | Update id=878587628 is not handled. Duration 733 ms by bot id=8867878073
+2026-05-13 14:24:56 | ERROR    | aiogram.event                  | Cause exception while process update id=878587628 by bot id=8867878073
+TypeError: catching classes that do not inherit from BaseException is not allowed
+Traceback (most recent call last):
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 109, in _make_request
+    raise WeatherAPIError(
+bot.services.weather_service.WeatherAPIError: Неверный API ключ OpenWeatherMap
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\handlers\weather_handlers.py", line 77, in handle_city_input
+    weather = await weather_service.get_current_weather(city)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 158, in get_current_weather
+    data = await self._make_request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 130, in _make_request
+    except aiohttp.ClientTimeout:
+TypeError: catching classes that do not inherit from BaseException is not allowed
+2026-05-13 14:25:10 | INFO     | bot.handlers.command_handlers  | Пользователь 1264776120 запустил бота
+2026-05-13 14:25:10 | DEBUG    | bot.database.db_manager        | Пользователь 1264776120 сохранён/обновлён
+2026-05-13 14:25:10 | INFO     | aiogram.event                  | Update id=878587629 is handled. Duration 187 ms by bot id=8867878073
+2026-05-13 14:25:15 | INFO     | bot.handlers.weather_handlers  | Пользователь 1264776120 ищет погоду: 'Алматы'
+2026-05-13 14:25:15 | INFO     | bot.services.weather_service   | Запрос текущей погоды для: Алматы
+2026-05-13 14:25:15 | DEBUG    | bot.database.db_manager        | Запрос 'Алматы' от 1264776120 сохранён
+2026-05-13 14:25:15 | INFO     | aiogram.event                  | Update id=878587630 is not handled. Duration 422 ms by bot id=8867878073
+2026-05-13 14:25:15 | ERROR    | aiogram.event                  | Cause exception while process update id=878587630 by bot id=8867878073
+TypeError: catching classes that do not inherit from BaseException is not allowed
+Traceback (most recent call last):
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 109, in _make_request
+    raise WeatherAPIError(
+bot.services.weather_service.WeatherAPIError: Неверный API ключ OpenWeatherMap
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\handlers\weather_handlers.py", line 77, in handle_city_input
+    weather = await weather_service.get_current_weather(city)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 158, in get_current_weather
+    data = await self._make_request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ДОК\itp 2\weather_bot\bot\services\weather_service.py", line 130, in _make_request
+    except aiohttp.ClientTimeout:
+TypeError: catching classes that do not inherit from BaseException is not allowed
+2026-05-13 14:46:12 | INFO     | aiogram.dispatcher             | Polling stopped
+2026-05-13 14:46:13 | INFO     | bot.weather_bot                | Остановка WeatherBot...
+2026-05-13 14:46:13 | INFO     | bot.services.weather_service   | HTTP-сессия WeatherService закрыта
+2026-05-13 14:46:13 | INFO     | bot.weather_bot                | WeatherBot остановлен
+2026-05-13 14:46:13 | INFO     | __main__                       | Приложение завершено
+2026-05-13 14:46:13 | INFO     | aiogram.dispatcher             | Polling stopped for bot @weather_ast01_shm_bot id=8867878073 - 'Weather Information Bot'
+2026-05-13 14:46:32 | INFO     | root                           | Логирование настроено: уровень=INFO, файл=logs/bot.log
+2026-05-13 14:46:32 | INFO     | __main__                       | ==================================================
+2026-05-13 14:46:32 | INFO     | __main__                       | Запуск Weather Bot
+2026-05-13 14:46:32 | INFO     | __main__                       | Конфигурация: Config(bot_token='***', weather_api_key='***', db_path='data/weather_bot.db', units='metric')
+2026-05-13 14:46:32 | INFO     | __main__                       | ==================================================
+2026-05-13 14:46:32 | INFO     | bot.database.db_manager        | Таблицы БД успешно инициализированы
+2026-05-13 14:46:32 | INFO     | bot.database.db_manager        | DatabaseManager инициализирован: data/weather_bot.db
+2026-05-13 14:46:32 | INFO     | bot.services.weather_service   | WeatherService инициализирован (WeatherAPI.com)
+2026-05-13 14:46:32 | INFO     | bot.weather_bot                | Роутеры зарегистрированы
+2026-05-13 14:46:32 | INFO     | bot.weather_bot                | WeatherBot успешно инициализирован
+2026-05-13 14:46:32 | INFO     | bot.weather_bot                | Запуск WeatherBot...
+2026-05-13 14:46:33 | INFO     | bot.weather_bot                | Бот запущен. Ожидаю сообщения...
+2026-05-13 14:46:33 | INFO     | aiogram.dispatcher             | Start polling
+2026-05-13 14:46:33 | INFO     | aiogram.dispatcher             | Run polling for bot @weather_ast01_shm_bot id=8867878073 - 'Weather Information Bot'
+2026-05-13 14:46:42 | INFO     | bot.handlers.command_handlers  | Пользователь 1264776120 запустил бота
+2026-05-13 14:46:43 | DEBUG    | bot.database.db_manager        | Пользователь 1264776120 сохранён/обновлён
+2026-05-13 14:46:43 | INFO     | aiogram.event                  | Update id=878587631 is handled. Duration 952 ms by bot id=8867878073
+2026-05-13 14:46:46 | INFO     | bot.handlers.weather_handlers  | Пользователь 1264776120 ищет погоду: 'астана'
+2026-05-13 14:46:46 | INFO     | bot.services.weather_service   | Запрос текущей погоды для: астана
+2026-05-13 14:46:47 | DEBUG    | bot.database.db_manager        | Запрос 'астана' от 1264776120 сохранён
+2026-05-13 14:46:47 | INFO     | aiogram.event                  | Update id=878587632 is handled. Duration 640 ms by bot id=8867878073
+2026-05-13 14:46:57 | INFO     | bot.handlers.callback_handlers | Прогноз для 'Астана' от 1264776120
+2026-05-13 14:46:57 | INFO     | bot.services.weather_service   | Запрос прогноза для: Астана
+2026-05-13 14:46:57 | INFO     | aiogram.event                  | Update id=878587633 is handled. Duration 452 ms by bot id=8867878073
+2026-05-13 14:47:03 | INFO     | bot.handlers.callback_handlers | Обновление погоды для 'Астана' от 1264776120
+2026-05-13 14:47:04 | INFO     | bot.services.weather_service   | Запрос текущей погоды для: Астана
+2026-05-13 14:47:04 | DEBUG    | bot.database.db_manager        | Запрос 'Астана' от 1264776120 сохранён
+2026-05-13 14:47:04 | INFO     | aiogram.event                  | Update id=878587634 is handled. Duration 1125 ms by bot id=8867878073
+2026-05-13 14:47:07 | INFO     | aiogram.event                  | Update id=878587635 is handled. Duration 1172 ms by bot id=8867878073
+2026-05-13 14:47:12 | INFO     | aiogram.event                  | Update id=878587636 is handled. Duration 234 ms by bot id=8867878073
+2026-05-13 14:47:17 | INFO     | bot.handlers.weather_handlers  | Пользователь 1264776120 ищет погоду: 'шымкент'
+2026-05-13 14:47:17 | INFO     | bot.services.weather_service   | Запрос текущей погоды для: шымкент
+2026-05-13 14:47:18 | DEBUG    | bot.database.db_manager        | Запрос 'шымкент' от 1264776120 сохранён
+2026-05-13 14:47:18 | INFO     | aiogram.event                  | Update id=878587637 is handled. Duration 422 ms by bot id=8867878073
+2026-05-13 14:53:13 | INFO     | bot.handlers.callback_handlers | Обновление погоды для 'Шымкент' от 1264776120
+2026-05-13 14:53:20 | INFO     | bot.services.weather_service   | Запрос текущей погоды для: Шымкент
+2026-05-13 14:53:24 | INFO     | bot.handlers.command_handlers  | Пользователь 1264776120 запустил бота
+2026-05-13 14:53:24 | DEBUG    | bot.database.db_manager        | Пользователь 1264776120 сохранён/обновлён
+2026-05-13 14:53:24 | INFO     | aiogram.event                  | Update id=878587639 is handled. Duration 1015 ms by bot id=8867878073
+2026-05-13 14:53:27 | DEBUG    | bot.database.db_manager        | Запрос 'Шымкент' от 1264776120 сохранён
+2026-05-13 14:53:27 | INFO     | aiogram.event                  | Update id=878587638 is handled. Duration 14547 ms by bot id=8867878073
+2026-05-13 14:53:32 | INFO     | bot.handlers.weather_handlers  | Пользователь 1264776120 ищет погоду: 'алматы'
+2026-05-13 14:53:32 | INFO     | bot.services.weather_service   | Запрос текущей погоды для: алматы
+2026-05-13 14:53:32 | DEBUG    | bot.database.db_manager        | Запрос 'алматы' от 1264776120 сохранён
+2026-05-13 14:53:32 | INFO     | aiogram.event                  | Update id=878587640 is handled. Duration 532 ms by bot id=8867878073
+2026-05-13 16:10:52 | INFO     | aiogram.dispatcher             | Polling stopped
+2026-05-13 16:10:52 | INFO     | bot.weather_bot                | Остановка WeatherBot...
+2026-05-13 16:10:52 | INFO     | bot.weather_bot                | WeatherBot остановлен
+2026-05-13 16:10:52 | INFO     | __main__                       | Приложение завершено
+2026-05-13 16:10:52 | INFO     | aiogram.dispatcher             | Polling stopped for bot @weather_ast01_shm_bot id=8867878073 - 'Weather Information Bot'
