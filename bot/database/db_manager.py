@@ -165,7 +165,25 @@ class DatabaseManager:
             return True
         except sqlite3.IntegrityError:
             return False
-    
+
+    async def get_all_users_with_favorites(self) -> dict[int, list[str]]:
+        query = """
+                SELECT user_id, city_name
+                FROM favorite_cities
+                ORDER BY user_id \
+                """
+
+        async with self._connection.execute(query) as cursor:
+            rows = await cursor.fetchall()
+
+        result = {}
+
+        for user_id, city_name in rows:
+            if user_id not in result:
+                result[user_id] = []
+            result[user_id].append(city_name)
+
+        return result
     def get_favorite_cities(self, user_id: int) -> list[str]:
 
         with self._get_connection() as conn:

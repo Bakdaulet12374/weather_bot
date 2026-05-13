@@ -1,7 +1,4 @@
-"""
-Точка входа в приложение.
-Запускает WeatherBot с правильной конфигурацией.
-"""
+
 
 import asyncio
 import logging
@@ -16,12 +13,7 @@ from bot.utils import setup_logging
 
 
 async def main() -> None:
-    """
-    Асинхронная точка входа.
-    Загружает конфигурацию, настраивает логи, запускает бота.
-    """
-    
-    # 1. Загружаем конфигурацию из .env
+
     try:
         config = Config.from_env()
     except ValueError as e:
@@ -57,5 +49,4 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    # Запускаем асинхронное приложение
     asyncio.run(main())

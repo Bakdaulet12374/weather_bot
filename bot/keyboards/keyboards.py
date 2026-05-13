@@ -1,23 +1,11 @@
-"""
-Фабрика клавиатур для Telegram бота.
-Инкапсулирует создание всех inline и reply клавиатур.
-"""
+
 
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 
 class KeyboardFactory:
-    """
-    Фабрика клавиатур (Factory Pattern).
-    
-    Принципы ООП:
-    - Единственная ответственность: только создание клавиатур
-    - Инкапсуляция: детали построения скрыты от других классов
-    - Статические методы: не требуют состояния объекта
-    
-    Все методы возвращают готовые объекты InlineKeyboardMarkup.
-    """
+
     
     @staticmethod
     def main_weather_keyboard(city: str) -> InlineKeyboardMarkup:

@@ -7,13 +7,7 @@ from ..models import WeatherData, ForecastDay
 
 
 class MessageFormatter:
-    """
-    Форматирует данные о погоде в текстовые сообщения для Telegram.
-    
-    Принцип единственной ответственности:
-    - только форматирование, никакой бизнес-логики
-    - использует HTML-разметку Telegram
-    """
+
     
     @staticmethod
     def format_current_weather(weather: WeatherData) -> str:

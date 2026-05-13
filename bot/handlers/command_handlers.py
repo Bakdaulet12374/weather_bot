@@ -56,7 +56,7 @@ def setup_command_handlers(db: DatabaseManager) -> Router:
             f"📊 Вести историю ваших запросов\n\n"
             f"<b>Как начать:</b>\n"
             f"Просто напишите название города!\n\n"
-            f"<i>Например: <code>Алматы</code> или <code>Moscow</code></i>\n\n"
+            f"<i>Например: <code>Алматы</code> или <code>Astana</code></i>\n\n"
             f"📌 Список команд: /help"
         )
         
