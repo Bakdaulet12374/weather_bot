@@ -149,5 +149,17 @@ def setup_command_handlers(db: DatabaseManager) -> Router:
             parse_mode="HTML",
             reply_markup=KeyboardFactory.back_keyboard("main_menu"),
         )
-    
+
+    @router.message(F.text == "/кнопка")
+    async def cmd_button(message: Message):
+        await message.answer(
+            "Нажми кнопку:",
+            reply_markup=hello_keyboard()
+        )
+
+
+    @router.callback_query(F.data == "hello")
+    async def btn_click(callback: CallbackQuery):
+        await callback.message.answer("Hello World!")
+        await callback.answer()
     return router

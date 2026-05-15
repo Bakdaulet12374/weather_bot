@@ -129,9 +129,20 @@ class KeyboardFactory:
                 callback_data="main_menu"
             ),
         )
-        
+
         return builder.as_markup()
-    
+
+    def hello_keyboard():
+        builder = InlineKeyboardBuilder()
+
+        builder.row(
+            InlineKeyboardButton(
+                text="Нажми меня",
+                callback_data="hello"
+            )
+        )
+
+        return builder.as_markup()
     @staticmethod
     def back_keyboard(callback: str = "main_menu") -> InlineKeyboardMarkup:
         """
@@ -145,7 +156,8 @@ class KeyboardFactory:
             InlineKeyboardButton(text="◀️ Назад", callback_data=callback)
         )
         return builder.as_markup()
-    
+
+
     @staticmethod
     def error_keyboard() -> InlineKeyboardMarkup:
         """Клавиатура при ошибке."""
