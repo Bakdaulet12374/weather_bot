@@ -41,9 +41,14 @@ class KeyboardFactory:
                 callback_data="stats"
             ),
         )
-        
+        builder.row(
+            InlineKeyboardButton(
+                text="Привет мир",
+                callback_data="hello_world"
+            ),
+        )
         return builder.as_markup()
-    
+
     @staticmethod
     def forecast_keyboard(city: str) -> InlineKeyboardMarkup:
         """
@@ -132,15 +137,7 @@ class KeyboardFactory:
 
         return builder.as_markup()
 
-    def hello_keyboard():
-        builder = InlineKeyboardBuilder()
 
-        builder.row(
-            InlineKeyboardButton(
-                text="Нажми меня",
-                callback_data="hello"
-            )
-        )
 
         return builder.as_markup()
     @staticmethod

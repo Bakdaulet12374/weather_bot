@@ -189,5 +189,11 @@ def setup_callback_handlers(
     @router.callback_query(F.data == "noop")
     async def cb_noop(callback: CallbackQuery) -> None:
         await callback.answer()
-    
+
+    @router.callback_query(F.data == "hello_world")
+    async def cb_hello_world(callback: CallbackQuery) -> None:
+        await callback.answer()
+        await callback.message.answer("Привет мир!")
+
+    return router
     return router
